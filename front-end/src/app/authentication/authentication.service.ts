@@ -10,9 +10,11 @@ import { User } from "./models/user.model";
   providedIn: "root"
 })
 export class AuthenticationService {
-  constructor(private http: HttpClient, 
-              private router: Router,
-             @Inject('config') private config: LibraryConfig) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    @Inject('config') private config: LibraryConfig
+  ) {}
 
   login(user: User): Observable<User> {
     return this.http

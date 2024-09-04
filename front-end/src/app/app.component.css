@@ -1,37 +1,26 @@
-.spacer {
-    flex-grow: 1;
+  .right {
+    position: absolute;
+    left: 92%;
+    font-weight: 900;
   }
 
   .toolbar {
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    padding-right: 30px;
+    background-color: #97d0fe;
+    color: #0b2642;
+    font-weight: 900;
   }
 
   .toolbar img {
     margin: 0 16px;
   }
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
- .content {
+  .content {
     margin: 32px 32px;
   }
 
   app-calendar-view {
     width: 100%;
   }
- 
-
-  

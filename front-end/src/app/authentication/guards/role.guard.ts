@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoleGuard implements CanActivate {
+export class RoleGuard  {
       constructor(
         private router: Router,
         private authenticationService: AuthenticationService
@@ -18,7 +18,7 @@ export class RoleGuard implements CanActivate {
             return true;
         }
 
-        this.router.navigate(['/home']);
+        this.router.navigate(['/',currentUser.username]);
         return false;
     }
 }

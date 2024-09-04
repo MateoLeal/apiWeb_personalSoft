@@ -1,4 +1,4 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; overflow: hidden;}
+html, body { height: 100%; overflow: hidden; background-color: rgb(241, 241, 241);}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

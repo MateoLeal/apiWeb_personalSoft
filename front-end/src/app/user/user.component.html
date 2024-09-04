@@ -1,3 +1,66 @@
-<p>Welcome User!</p>
+<div class="example-container">
+    <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input #productName matInput placeholder="Pantalon" required/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Type</mat-label>
+        <input #productType matInput placeholder="Mujer/Hombre/Casual/Formal" required/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Price $</mat-label>
+        <input #productPrice matInput placeholder="10000" required/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Cant</mat-label>
+        <input #productCant matInput placeholder="10" required/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Status</mat-label>
+        <input #productStatus matInput placeholder="1: Activo, 0: Agotado" required/>
+    </mat-form-field>
+    <button
+        (click)="post(productName.value, productType.value, productPrice.value, productCant.value, productStatus.value)"
+        mat-fab
+        style="float: right; color: white; background-color: green;"
+    >
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
 
-<button mat-raised-button color="primary" routerLink="/home" routerLinkActive="active">Go Home</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"> Item </th>
+            <th scope="col"> Name </th>
+            <th scope="col"> Type </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Cant </th>
+            <th scope="col"> Status </th>
+            <th scope="col"> Edit </th>
+            <th scope="col"> Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products$ | async">
+            <td> {{product.consecutive}} </td>
+            <td> {{product.name}} </td>
+            <td> <input #newType matInput placeholder="{{product.type}}"/></td>
+            <td> <input #newPrice matInput placeholder="{{product.price}}"/></td>
+            <td> <input #newCant matInput placeholder="{{product.cant}}"/></td>
+            <td> <input #newStatus matInput placeholder="{{product.status}}"/></td>
+            <td>
+                <button mat-icon-button style="color: blue;"
+                        (click)="update(product.consecutive, product.name, newType.value || product.type, newPrice.value || product.price, newCant.value || product.cant, newStatus.value || product.status)"
+                    > *
+                </button>
+            </td>
+            <td>
+                <button mat-icon-button style="color: red;"
+                    (click)="delete(product.consecutive)" color="warn">
+                    *
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

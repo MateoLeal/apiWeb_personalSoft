@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../authentication.service';
@@ -12,7 +12,7 @@ import { LibraryConfig } from '../../models/config';
 })
 export class LoginComponent  {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   error: string = null;
 
@@ -21,9 +21,9 @@ export class LoginComponent  {
       private router: Router,
       @Inject('config') private config: LibraryConfig) {
     
-        this.loginForm = new FormGroup({
-        username: new FormControl(null, Validators.required),
-        password: new FormControl(null, Validators.required)
+        this.loginForm = new UntypedFormGroup({
+        username: new UntypedFormControl(null, Validators.required),
+        password: new UntypedFormControl(null, Validators.required)
     });
   }
 
